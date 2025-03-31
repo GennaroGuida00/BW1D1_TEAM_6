@@ -75,6 +75,10 @@ footer p {
   vertical-align: middle;
   margin: 0 10px;
 }
+footer .box {
+  width: 20px; /* Larghezza della checkbox */
+  height: 20px;
+}
 footer .hover-button {
   text-align: center;
   margin-left: 100px;
