@@ -1,0 +1,27 @@
+header img {
+  margin: 30px;
+  padding-left: 50px;
+  width: 200px;
+}
+main {
+  margin: 30px;
+  margin-inline: 50px;
+  text-align: center;
+  color: white;
+}
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0;
+}
+main p {
+  margin-top: 15px;
+  padding-inline: 50px;
+  font-size: 1.3rem;
+}
+main div {
+  padding: 20px;
+}
+
+.star {
+  padding: 5px;
+}
