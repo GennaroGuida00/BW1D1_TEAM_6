@@ -1,13 +1,6 @@
 body {
-  background-image: none;
   margin: 0;
   padding: 0;
-}
-main {
-  background-image: url(../bg.jpg);
-  max-width: 64rem;
-  min-height: 48rem;
-  color: #fff;
 }
 
 section {
@@ -40,6 +33,10 @@ h2 {
 
 .answer-button:not(:last-child) {
   margin-right: 2rem;
+}
+
+.answer-button:hover {
+  background-image: linear-gradient(to bottom, #d20094, transparent);
 }
 
 #third-and-fourth-answers {
