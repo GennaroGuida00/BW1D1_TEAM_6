@@ -1,14 +1,23 @@
 body {
   background-image: none;
+  margin: 0;
+  padding: 0;
 }
 main {
   background-image: url(../bg.jpg);
   max-width: 64rem;
   min-height: 48rem;
+  color: #fff;
+}
+
+section {
+  margin: auto;
+  text-align: center;
 }
 
 span {
   font-weight: 600;
+  color: #d20094;
 }
 
 #logo-img {
@@ -16,6 +25,24 @@ span {
 }
 
 h2 {
-  color: #fff;
   font-size: 3rem;
+  margin-top: 8rem;
+}
+
+.answer-button {
+  background: rgba(119, 119, 119, 0.3);
+  font-size: 1rem;
+  padding: 1.4rem 6.2rem;
+  color: #fff;
+  border-radius: 50px;
+  border: 3px solid #fff;
+}
+
+.answer-button:not(:last-child) {
+  margin-right: 2rem;
+}
+
+#third-and-fourth-answers {
+  margin-top: 1.2rem;
+  margin-bottom: 8rem;
 }
