@@ -23,7 +23,7 @@ p,
 strong {
   margin-top: 0;
 }
-.main {
+body {
   margin: 50px 100px;
   width: 40%;
 }
@@ -64,17 +64,18 @@ li {
   margin-top: 50px;
   color: #e7e7eb;
 }
-#divFooter {
-  margin-left: 100px;
+footer {
   margin-top: 200px;
+  width: 90%;
+  position: absolute;
 }
-#divFooter .hover-button,
-#divFooter p {
+footer .hover-button,
+footer p {
   display: inline-block;
   vertical-align: middle;
   margin: 0 10px;
 }
-#divFooter .hover-button {
+footer .hover-button {
   text-align: center;
   margin-left: 100px;
   margin-block: 30px;
