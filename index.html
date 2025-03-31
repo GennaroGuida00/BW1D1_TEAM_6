@@ -23,17 +23,23 @@
       <p>The summary of your answers:</p>
     </main>
 
-    <div id="Correct">
-      <h2>Correct</h2>
-      <p class="percentualCorrect"></p>
-    </div>
+    <section>
+      <div id="Correct">
+        <h2>Correct</h2>
+        <p class="percentualCorrect"></p>
+      </div>
 
-    <div>QUI ANDRA IL GRAFICO</div>
+      <div id="grafico">
+        <svg width="200" height="200">
+          <circle cx="100" cy="100" r="100" id="cerchio" />
+        </svg>
+      </div>
 
-    <div id="Wrong">
-      <h2>Wrong</h2>
-      <p class="percentualWrong"></p>
-    </div>
+      <div id="Wrong">
+        <h2>Wrong</h2>
+        <p class="percentualWrong"></p>
+      </div>
+    </section>
 
     <footer>
       <button id="rateButton">RATE US</button>

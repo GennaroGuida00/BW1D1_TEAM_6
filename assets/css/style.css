@@ -13,6 +13,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
+  padding-bottom: 2rem;
 }
 h1,
 h2,
@@ -32,22 +33,24 @@ h1 {
 
 h2 {
   display: inline;
-  font-weight: bold;
   font-size: 3rem;
+  font-weight: normal;
 }
 p {
   text-align: center;
+  font-size: 1.5rem;
 }
 main {
   margin-top: 3rem;
   margin-bottom: 5rem;
 }
+
+#Correct,
+#Wrong,
 div {
-  display: inline;
-  width: 50%;
-  margin-top: 3rem;
-  padding: 3rem;
-  text-align: center;
+  display: inline-block;
+  width: 30%;
+  vertical-align: middle;
 }
 div p {
   display: inline;
@@ -58,13 +61,14 @@ button {
   font-size: 2rem;
   background: none;
   text-align: center;
-  border: solid 1px white;
+  border: solid 2px white;
   color: white;
   padding: 1rem;
   margin: 0 auto;
+  margin-bottom: 6rem;
 }
 
 footer {
   text-align: center;
-  margin-top: 8rem;
+  margin-top: 1rem;
 }
