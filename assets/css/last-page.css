@@ -7,7 +7,7 @@ main {
   margin: 30px;
   margin-inline: 50px;
   text-align: center;
-  color: white;
+  color: #e7e7eb;
 }
 h1 {
   font-size: 2.5rem;
@@ -19,9 +19,41 @@ main p {
   font-size: 1.3rem;
 }
 main div {
-  padding: 20px;
+  margin-inline: 40px;
+  padding: 15px;
 }
 
 .star {
-  padding: 5px;
+  padding: 3px;
+  width: 45px;
+}
+
+form {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+form p {
+  padding-block: 20px;
+  color: #e7e7eb;
+  height: 30px;
+  font-size: 1.3rem;
+}
+form input {
+  width: 80%;
+  margin: 30px;
+  padding-left: 20px;
+  padding-bottom: 5px;
+  font-size: 1rem;
+  background-color: inherit;
+  border-top-style: none;
+  border-right-style: none;
+  border-left-style: none;
+  border-bottom-style: solid;
+  border-bottom-color: #c2128d;
+}
+form button {
+  display: block;
+  text-align: center;
+  margin: auto;
 }
