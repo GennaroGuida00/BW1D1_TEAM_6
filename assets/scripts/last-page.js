@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
     });
-    const button = document.querySelector(".hover-button");
-    button.addEventListener("click", function () {
-      alert("Valutazione registrata");
-    });
+  });
+  const button = document.querySelector(".hover-button");
+  button.addEventListener("click", function () {
+    alert("Feedback sent!");
   });
 });
