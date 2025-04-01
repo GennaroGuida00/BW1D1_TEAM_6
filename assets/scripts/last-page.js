@@ -1,14 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
-  //const starOn = document.querySelectorAll(".star-on");
-  const starOff = document.querySelectorAll(".star-off img");
+  // Seleziona tutti gli elementi con la classe "star-off"
+  const starOff = document.querySelectorAll(".star-off");
 
+  // Controlla che la selezione abbia funzionato
   console.log(starOff);
 
-  starOff.forEach((star) => {
+  starOff.forEach((star, index) => {
     star.addEventListener("click", function () {
-      star = document.createElement(".star-on");
-      console.log(star);
+      for (let i = 0; i <= index; i++) {
+        starOff[i].src = "assets/star-on.svg";
+      }
     });
-    //starOn.forEach((star) => {});
   });
 });
