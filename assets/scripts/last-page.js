@@ -13,6 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   const button = document.querySelector(".hover-button");
   button.addEventListener("click", function () {
-    alert("Feedback sended!");
+    alert("Feedback sent!");
   });
 });
