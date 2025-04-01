@@ -8,7 +8,7 @@ body {
   height: 100%;
 }
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Outfit", sans-serif;
   background-image: url("../bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -19,6 +19,82 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+strong {
   margin-top: 0;
+}
+body {
+  margin: 50px 100px;
+  width: 40%;
+}
+header,
+#welcome,
+#instructions,
+#divFooter {
+  text-align: left;
+}
+#logo {
+  width: 200px;
+}
+h1 {
+  font-size: 100px;
+}
+#instructions h2 {
+  font-size: 40px;
+  color: #d20094;
+  margin: 5px;
+}
+#instructions p {
+  margin-bottom: 20px;
+}
+p,
+li {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  color: #e7e7eb;
+}
+ul {
+  margin: 60px 0px;
+}
+li {
+  padding: 5px;
+}
+#welcome {
+  text-align: left;
+  margin-top: 50px;
+  color: #e7e7eb;
+}
+footer {
+  margin-top: 200px;
+  width: 90%;
+  position: absolute;
+}
+footer .hover-button,
+footer p {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px;
+}
+footer .box {
+  width: 20px; /* Larghezza della checkbox */
+  height: 20px;
+}
+footer .hover-button {
+  text-align: center;
+  margin-left: 100px;
+  margin-block: 30px;
+  padding-block: 20px;
+  padding-inline: 60px;
+  border: solid 1px #e7e7eb;
+  background-color: inherit;
+  color: inherit;
+  font-size: 1.2rem;
+  transition: background-color 0.3s, transform 0.3s;
+}
+.hover-button:hover {
+  background-color: #00ffff;
+  color: #0b113b;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0px 0px 15px 5px #00ffff;
 }
