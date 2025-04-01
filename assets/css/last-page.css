@@ -21,9 +21,14 @@ main div {
   padding: 15px;
 }
 
-.star {
+.star-off {
   padding: 3px;
   width: 45px;
+}
+.star-on {
+  padding: 3px;
+  width: 45px;
+  display: none;
 }
 
 form {
