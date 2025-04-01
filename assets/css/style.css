@@ -25,15 +25,13 @@ p,
 strong {
   margin-top: 0;
 }
-body {
-  margin: 50px 100px;
-  width: 40%;
-}
+
 header,
 #welcome,
 #instructions,
-#divFooter {
+footer {
   text-align: left;
+  margin: 50px 100px;
 }
 #logo {
   width: 200px;
@@ -41,6 +39,11 @@ header,
 h1 {
   font-size: 100px;
 }
+#welcome #em {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+}
+
 #instructions h2 {
   font-size: 40px;
   color: #d20094;
@@ -78,10 +81,10 @@ footer p {
   margin: 0 10px;
 }
 footer .box {
-  width: 20px; /* Larghezza della checkbox */
+  width: 20px;
   height: 20px;
 }
-footer .hover-button {
+.hover-button {
   text-align: center;
   margin-left: 100px;
   margin-block: 30px;
@@ -89,7 +92,7 @@ footer .hover-button {
   padding-inline: 60px;
   border: solid 1px #e7e7eb;
   background-color: inherit;
-  color: inherit;
+  color: white;
   font-size: 1.2rem;
   transition: background-color 0.3s, transform 0.3s;
 }
