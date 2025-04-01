@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  width: 100%;
+}
+
+section {
+  margin: auto;
+  text-align: center;
+}
+
+span {
+  font-weight: 600;
+  color: #d20094;
+}
+
+h2 {
+  font-size: 3rem;
+  margin-top: 8rem;
+  font-weight: 300;
+}
+
+.answer-button {
+  background: rgba(119, 119, 119, 0.3);
+  font-size: 1rem;
+  padding: 1.4rem 8.2rem;
+  color: #fff;
+  border-radius: 50px;
+  border: 3px solid #fff;
+}
+
+.answer-button:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.answer-button:hover {
+  background-image: linear-gradient(to bottom, #d20094, transparent);
+}
+
+#third-and-fourth-answers {
+  margin-top: 1.2rem;
+  margin-bottom: 8rem;
+}
