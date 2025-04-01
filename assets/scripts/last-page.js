@@ -1,14 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
-  //const starOn = document.querySelectorAll(".star-on");
-  const starOff = document.querySelectorAll(".star-off img");
-
-  console.log(starOff);
-
-  starOff.forEach((star) => {
+  const starOff = document.querySelectorAll(".star-off");
+  starOff.forEach((star, index) => {
     star.addEventListener("click", function () {
-      star = document.createElement(".star-on");
-      console.log(star);
+      for (let i = 0; i < starOff.length; i++) {
+        if (i <= index) {
+          starOff[i].src = "assets/star-on.svg";
+        } else {
+          starOff[i].src = "assets/star-off.png";
+        }
+      }
     });
-    //starOn.forEach((star) => {});
+  });
+  const button = document.querySelector(".hover-button");
+  button.addEventListener("click", function () {
+    alert("Valutazione registrata");
   });
 });

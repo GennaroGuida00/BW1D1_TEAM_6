@@ -1,3 +1,9 @@
+body {
+  font-family: "Outfit", sans-serif;
+  background-image: url("../bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 main {
   margin: 30px;
   margin-inline: 50px;
@@ -28,7 +34,8 @@ main div {
 .star-on {
   padding: 3px;
   width: 45px;
-  display: none;
+  background-image: url("/assets/star-on.svg");
+  background-size: cover;
 }
 
 form {
