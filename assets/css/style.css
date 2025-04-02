@@ -8,10 +8,18 @@ body {
   height: 100%;
 }
 body {
-  font-family: "Outfit", sans-serif;
+  font-family: "Inter", sans-serif;
   background-image: url("../bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+}
+h1,
+h2,
+h4,
+h5,
+h6 {
+  font-family: "Outfit", sans-serif;
+  font-size: 3.75rem;
 }
 h1,
 h2,
@@ -86,11 +94,14 @@ footer {
   width: 90%;
   position: absolute;
 }
-footer .hover-button,
+
 footer p {
   display: inline-block;
   vertical-align: middle;
   margin: 0 10px;
+}
+footer .hover-button {
+  margin-left: 25rem;
 }
 footer .box {
   width: 20px;

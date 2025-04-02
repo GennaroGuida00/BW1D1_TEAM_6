@@ -52,8 +52,8 @@ const quizQuestions = [
     difficulty: "easy",
     category: "Science: Computers",
     question: "What does the Prt Sc button do?",
-    correct_answer: "Captures what&#039;s on the screen and copies it to your clipboard",
-    incorrect_answers: ["Nothing", "Saves a .png file of what&#039;s on the screen in your screenshots folder in photos", "Closes all windows"],
+    correct_answer: "Captures what's on the screen and copies it to your clipboard",
+    incorrect_answers: ["Nothing", "Saves a .png file of what's on the screen in your screenshots folder in photos", "Closes all windows"],
   },
   {
     type: "multiple",
@@ -82,4 +82,30 @@ const quizQuestions = [
 ];
 
 const questionTitle = document.getElementById("quiz-question-title");
-questionTitle.innerText = quizQuestions[0].question;
+const answersButton = document.querySelectorAll(".answer-button");
+let userPoints = 0;
+let questionNumber = 0;
+
+function generateQs() {
+  const question = quizQuestions[questionNumber];
+  document.getElementById("quiz-question-title").innerText = question.question;
+  const allAnswers = [...question.incorrect_answers, question.correct_answer];
+
+  document.getElementById("currentQuestion").innerText = questionNumber + 1;
+  document.getElementById("currentQuestion").style.color = "#fff";
+  document.getElementById("allQuestions").innerText = "/ " + quizQuestions.length;
+  document.getElementById("quiz-possible-answers").innerHTML = "";
+
+  for (let i = 0; i < allAnswers.length; i++) {
+    const button = document.createElement("button");
+    button.innerText = allAnswers[i];
+    button.classList.add("answer-button");
+    button.onclick = function (e) {
+      questionNumber++;
+      generateQs();
+    };
+    document.getElementById("quiz-possible-answers").appendChild(button);
+  }
+}
+
+generateQs();

@@ -8,34 +8,52 @@ section {
 }
 
 span {
-  font-weight: 600;
   color: #d20094;
 }
 
 h2 {
-  font-size: 3rem;
+  font-weight: 400;
+  width: 50rem;
+  margin: auto;
   margin-top: 8rem;
-  font-weight: 300;
+  margin-bottom: 5rem;
 }
 
 .answer-button {
   background: rgba(119, 119, 119, 0.3);
   font-size: 1rem;
-  padding: 1.4rem 8.2rem;
   color: #fff;
   border-radius: 50px;
   border: 3px solid #fff;
+  margin-bottom: 2rem;
+  width: 40rem;
+  height: 5rem;
 }
-
-.answer-button:not(:last-child) {
+.answer-button:not(:nth-child(2)):not(:nth-child(4)) {
   margin-right: 2rem;
 }
-
 .answer-button:hover {
   background-image: linear-gradient(to bottom, #d20094, transparent);
 }
+.answer-button:active {
+  background-image: linear-gradient(to bottom, #d20094, transparent);
+}
 
-#third-and-fourth-answers {
-  margin-top: 1.2rem;
-  margin-bottom: 8rem;
+.selected {
+  background-color: aliceblue;
+}
+
+#quiz-possible-answers {
+  max-width: 100rem;
+  margin: auto;
+}
+
+#quiz-question-div h3 {
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+}
+
+#question-counter {
+  margin-top: 5rem;
 }
