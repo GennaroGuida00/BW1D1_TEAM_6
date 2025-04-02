@@ -53,13 +53,14 @@ footer .box {
   width: 100%;
 }
 .hover-button {
-  text-align: center;
-  outline: solid 1px #e7e7eb;
-  border: none;
-  background-color: inherit;
-  color: white;
-  font-size: 1.2rem;
-  transition: background-color 0.3s, transform 0.3s;
+  form .hover-button {
+    display: block;
+    text-align: center;
+    margin: auto;
+    margin-block: 30px;
+    padding-block: 20px;
+    padding-inline: 60px;
+  }
 }
 
 /*button:hover {
