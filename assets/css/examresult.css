@@ -1,18 +1,15 @@
 h1 {
   text-align: center;
-  font-size: 3rem;
   font-weight: bolder;
   margin-bottom: 0;
 }
 
 h2 {
   display: inline;
-  font-size: 3rem;
   font-weight: normal;
 }
 p {
   text-align: center;
-  font-size: 1.5rem;
 }
 main {
   margin-top: 3rem;
@@ -30,9 +27,8 @@ div p {
   display: inline;
 }
 
-button {
+/*button {
   display: block;
-  font-size: 2rem;
   background: none;
   text-align: center;
   border: solid 2px white;
@@ -40,14 +36,19 @@ button {
   padding: 1rem;
   margin: 0 auto;
   margin-bottom: 6rem;
-}
+}*/
 
 footer {
   text-align: center;
   margin-top: 1rem;
 }
 
-button:hover {
+.hover-button {
+  margin: auto;
+}
+
+/*button:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
+*/
