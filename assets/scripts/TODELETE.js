@@ -84,13 +84,22 @@ const quizQuestions = [
 let questionIndex = 0;
 let scoreCorrect = 0;
 let scoreWrong = 0;
+let timer;
 
 const questionTitle = document.getElementById("quiz-question-title");
 const possibleAnswers = document.getElementById("quiz-possible-answers");
 const questionCounter = document.querySelector("p span");
+const timerDisplay = document.getElementById("quiz-timer");
 
 //funzione per aggiungere domande e bottoni:
 const addQuestion = function () {
+  //resetto il timer
+  clearTimeout(timer);
+
+  /*if (questionIndex>=quizQuestions.length) {
+  showResult TO DO!!!
+}*/
+
   //svuoto ogni volta il contenuto del div
   possibleAnswers.innerHTML = "";
 
@@ -108,35 +117,68 @@ const addQuestion = function () {
     const button = document.createElement("button");
     button.innerText = answer;
     button.classList.add("answer-button");
+
     //ad ogni click sul bottone mi va avant la domanda (grazie all'indice)
     button.addEventListener("click", function () {
+      clearTimeout(timer);
+      if (answer === everyQuestion.correct_answer) {
+        scoreCorrect++;
+      } else {
+        scoreWrong++;
+      }
+
       questionIndex++;
 
       if (questionIndex < quizQuestions.length) {
         addQuestion();
+      } else {
+        results();
       }
-      /*TO DO add event listener per andare alla pagina del resulto*/
     });
+
+    /* document.getElementById("currentQuestion").innerText = questionNumber + 1;
+    document.getElementById("currentQuestion").style.color = "#fff";
+    document.getElementById("allQuestions").innerText = "/ " + quizQuestions.length;*/
 
     possibleAnswers.appendChild(button);
   });
+  startTimer();
+};
+//funzione che mi fa iniziare il timer
+const startTimer = function () {
+  let timeLeft = 3;
+  timerDisplay.innerText = `time left ${timeLeft}s`;
+  timer = setInterval(() => {
+    timeLeft--;
+    timerDisplay.innerText = `time left ${timeLeft}s`;
+    if (timeLeft === 0) {
+      clearInterval(timer);
+      scoreWrong++;
+      questionIndex++;
+      if (questionIndex < quizQuestions.length) {
+        addQuestion();
+      } else {
+        results();
+      }
+    }
+  }, 1000);
+};
+const results = function () {
+  /*const div = ducument.getElementById("results");
+  div.className = "visible";*/
+  const grafico = document.getElementById("grafico");
+  grafico.className = "visible";
+  const bottone = document.getElementById("bottone");
+  bottone.className = "visible";
+  questionTitle.innerText = "Results";
+  /*const correctAnswers = document.getElementById("correct-answers");
+  const wrongAnswers = document.getElementById("wrong-answers");
+  correctAnswers.innerText = `Correct: ${scoreCorrect}`;
+  wrongAnswers.innerText = `Wrong: ${scoreWrong}`;*/
+  possibleAnswers.innerHTML = `
+    <p>Correct: ${scoreCorrect}</p>
+    <p>Wrong: ${scoreWrong}</p>
+  `;
+  timerDisplay.innerText = "";
 };
 addQuestion();
-
-// per ogni riposta creo un bottone (in base al numero di risposte che ha everyQuestion)
-/* answers.forEach((answer) => {
-    const button = document.createElement("button");
-    button.innerText = answer;
-    button.classList.add("answer-button");
-
-    button.addEventListener("click", function () {
-      questionIndex++;
-    });
-    if (questionIndex < quizQuestions.length) {
-      addQuestion();
-    }
-    possibleAnswers.appendChild(button);
-  });
-};
-
-addQuestion();*/

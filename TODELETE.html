@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="./assets/css/quiz.css" />
+    <link rel="stylesheet" href="./assets/css/todelete.css" />
 
     <title>Quiz</title>
   </head>
@@ -18,6 +18,7 @@
     <main>
       <header>
         <img id="logo" src="./assets/epicode_logo.png" alt="Epicode Logo" />
+        <p id="quiz-timer"></p>
       </header>
       <section>
         <div id="quiz-question-div">
@@ -26,11 +27,21 @@
             <!-- <div id="first-and-second-answers"><button class="answer-button">Answer 1</button><button class="answer-button">Answer 2</button></div>
             <div id="third-and-fourth-answers"><button class="answer-button">Answer 3</button><button class="answer-button">Answer 4</button></div>
         -->
+            <p id="correct-answers" class="inline"></p>
+            <p id="wrong-answers" class="inline"></p>
           </div>
-          <p>Question x <span>of x</span></p>
+          <div id="grafico" class="display" class="inline">
+            <svg width="200" height="200">
+              <circle cx="100" cy="100" r="100" id="cerchio" stroke="deepskyblue" stroke-width="10" fill="none" />
+            </svg>
+          </div>
+          <h3 id="question-counter">Question <span id="currentQuestion"></span> <span id="allQuestions"></span></h3>
         </div>
       </section>
     </main>
+    <footer id="bottone" class="display">
+      <button class="hover-button" id="rateButton">RATE US</button>
+    </footer>
     <script src="assets/scripts/TODELETE.js"></script>
   </body>
 </html>
