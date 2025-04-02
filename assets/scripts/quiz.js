@@ -90,6 +90,7 @@ function generateQs() {
   const question = quizQuestions[questionNumber];
   document.getElementById("quiz-question-title").innerText = question.question;
   const allAnswers = [...question.incorrect_answers, question.correct_answer];
+  allAnswers.sort(() => Math.random() - 0.5);
 
   document.getElementById("currentQuestion").innerText = questionNumber + 1;
   document.getElementById("currentQuestion").style.color = "#fff";
