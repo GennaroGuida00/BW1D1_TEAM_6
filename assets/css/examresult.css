@@ -1,12 +1,20 @@
 h1 {
   text-align: center;
-  font-weight: bolder;
+  font-weight: 600;
   margin-bottom: 0;
 }
 
 h2 {
-  display: inline;
-  font-weight: normal;
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin-top: -0.7rem;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  font-weight: 300;
+  font-size: 3.5rem;
 }
 p {
   text-align: center;
@@ -23,28 +31,35 @@ div {
   width: 30%;
   vertical-align: middle;
 }
+
+#grafico {
+  text-align: center;
+}
 div p {
   display: inline;
 }
 
-/*button {
-  display: block;
-  background: none;
-  text-align: center;
-  border: solid 2px white;
-  color: white;
-  padding: 1rem;
-  margin: 0 auto;
-  margin-bottom: 6rem;
-}*/
-
 footer {
+  width: 100%;
+  position: relative;
   text-align: center;
-  margin-top: 1rem;
+  margin-left: 0;
 }
 
+footer .hover-button {
+  margin: 0;
+}
+footer .box {
+  width: 100%;
+}
 .hover-button {
-  margin: auto;
+  text-align: center;
+  outline: solid 1px #e7e7eb;
+  border: none;
+  background-color: inherit;
+  color: white;
+  font-size: 1.2rem;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 /*button:hover {
