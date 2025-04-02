@@ -12,6 +12,8 @@ body {
   background-image: url("../bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  color: white;
+  padding-bottom: 2rem;
 }
 h1,
 h2,
