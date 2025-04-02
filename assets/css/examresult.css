@@ -1,0 +1,61 @@
+h1 {
+  text-align: center;
+  font-weight: bolder;
+  margin-bottom: 0;
+}
+
+h2 {
+  display: inline;
+  font-weight: normal;
+}
+p {
+  text-align: center;
+}
+main {
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+#Correct,
+#Wrong,
+div {
+  display: inline-block;
+  width: 30%;
+  vertical-align: middle;
+}
+div p {
+  display: inline;
+}
+
+/*button {
+  display: block;
+  background: none;
+  text-align: center;
+  border: solid 2px white;
+  color: white;
+  padding: 1rem;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+}*/
+
+footer {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.hover-button {
+  form .hover-button {
+    display: block;
+    text-align: center;
+    margin: auto;
+    margin-block: 30px;
+    padding-block: 20px;
+    padding-inline: 60px;
+  }
+}
+
+/*button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+*/

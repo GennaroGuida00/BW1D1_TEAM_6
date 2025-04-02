@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/examresult.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <header class="main">
+      <img src="./assets/epicode_logo.png" alt="logo epicode" width="150px" />
+    </header>
+    <main>
+      <h1>Results</h1>
+
+      <p>The summary of your answers:</p>
+    </main>
+
+    <section>
+      <div id="Correct">
+        <h2>Correct</h2>
+        <p class="percentualCorrect"></p>
+      </div>
+
+      <div id="grafico">
+        <svg width="200" height="200">
+          <circle cx="100" cy="100" r="100" id="cerchio" />
+        </svg>
+      </div>
+
+      <div id="Wrong">
+        <h2>Wrong</h2>
+        <p class="percentualWrong"></p>
+      </div>
+    </section>
+
+    <footer>
+      <button class="hover-button" id="rateButton">RATE US</button>
+    </footer>
+  </body>
+</html>
