@@ -12,14 +12,21 @@ body {
   background-image: url("../bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  color: white;
+  padding-bottom: 2rem;
 }
 h1,
 h2,
+h3,
 h4,
 h5,
 h6 {
   font-family: "Outfit", sans-serif;
   font-size: 3.75rem;
+}
+
+h3 {
+  font-size: 1.2rem;
 }
 h1,
 h2,

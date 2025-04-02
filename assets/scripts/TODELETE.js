@@ -52,8 +52,8 @@ const quizQuestions = [
     difficulty: "easy",
     category: "Science: Computers",
     question: "What does the Prt Sc button do?",
-    correct_answer: "Captures what's on the screen and copies it to your clipboard",
-    incorrect_answers: ["Nothing", "Saves a .png file of what's on the screen in your screenshots folder in photos", "Closes all windows"],
+    correct_answer: "Captures what&#039;s on the screen and copies it to your clipboard",
+    incorrect_answers: ["Nothing", "Saves a .png file of what&#039;s on the screen in your screenshots folder in photos", "Closes all windows"],
   },
   {
     type: "multiple",
@@ -81,32 +81,62 @@ const quizQuestions = [
   },
 ];
 
+let questionIndex = 0;
+let scoreCorrect = 0;
+let scoreWrong = 0;
+
 const questionTitle = document.getElementById("quiz-question-title");
-const answersButton = document.querySelectorAll(".answer-button");
-let userPoints = 0;
-let questionNumber = 0;
+const possibleAnswers = document.getElementById("quiz-possible-answers");
+const questionCounter = document.querySelector("p span");
 
-function generateQs() {
-  const question = quizQuestions[questionNumber];
-  document.getElementById("quiz-question-title").innerText = question.question;
-  const allAnswers = [...question.incorrect_answers, question.correct_answer];
-  allAnswers.sort(() => Math.random() - 0.5);
+//funzione per aggiungere domande e bottoni:
+const addQuestion = function () {
+  //svuoto ogni volta il contenuto del div
+  possibleAnswers.innerHTML = "";
 
-  document.getElementById("currentQuestion").innerText = questionNumber + 1;
-  document.getElementById("currentQuestion").style.color = "#fff";
-  document.getElementById("allQuestions").innerText = "/ " + quizQuestions.length;
-  document.getElementById("quiz-possible-answers").innerHTML = "";
+  //do il titolo ad ogni fomanda con il suo indice
+  const everyQuestion = quizQuestions[questionIndex];
+  questionTitle.innerText = everyQuestion.question;
 
-  for (let i = 0; i < allAnswers.length; i++) {
+  //prendo l'array di risposte errate e la risposta corretta e le assegno randomicamente:
+
+  const answers = [...everyQuestion.incorrect_answers, everyQuestion.correct_answer];
+  answers.sort(() => Math.random() - 0.5);
+
+  //per ogni risposta creo un bottone
+  answers.forEach((answer) => {
     const button = document.createElement("button");
-    button.innerText = allAnswers[i];
+    button.innerText = answer;
     button.classList.add("answer-button");
-    button.onclick = function (e) {
-      questionNumber++;
-      generateQs();
-    };
-    document.getElementById("quiz-possible-answers").appendChild(button);
-  }
-}
+    //ad ogni click sul bottone mi va avant la domanda (grazie all'indice)
+    button.addEventListener("click", function () {
+      questionIndex++;
 
-generateQs();
+      if (questionIndex < quizQuestions.length) {
+        addQuestion();
+      }
+      /*TO DO add event listener per andare alla pagina del resulto*/
+    });
+
+    possibleAnswers.appendChild(button);
+  });
+};
+addQuestion();
+
+// per ogni riposta creo un bottone (in base al numero di risposte che ha everyQuestion)
+/* answers.forEach((answer) => {
+    const button = document.createElement("button");
+    button.innerText = answer;
+    button.classList.add("answer-button");
+
+    button.addEventListener("click", function () {
+      questionIndex++;
+    });
+    if (questionIndex < quizQuestions.length) {
+      addQuestion();
+    }
+    possibleAnswers.appendChild(button);
+  });
+};
+
+addQuestion();*/
