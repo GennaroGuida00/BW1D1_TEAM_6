@@ -8,10 +8,18 @@ body {
   height: 100%;
 }
 body {
-  font-family: "Outfit", sans-serif;
+  font-family: "Inter", sans-serif;
   background-image: url("../bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+}
+h1,
+h2,
+h4,
+h5,
+h6 {
+  font-family: "Outfit", sans-serif;
+  font-size: 3.75rem;
 }
 h1,
 h2,
@@ -22,6 +30,20 @@ h6,
 p,
 strong {
   margin-top: 0;
+}
+
+h1 {
+  font-weight: 300;
+  line-height: 5rem;
+}
+
+span {
+  font-weight: 600;
+}
+
+#proceed-div {
+  vertical-align: middle;
+  display: inline;
 }
 
 header,
@@ -45,7 +67,7 @@ h1 {
 #instructions h2 {
   font-size: 40px;
   color: #d20094;
-  margin: 5px;
+  margin: 5px 0;
 }
 #instructions p {
   margin-bottom: 20px;
@@ -72,11 +94,14 @@ footer {
   width: 90%;
   position: absolute;
 }
-footer .hover-button,
+
 footer p {
   display: inline-block;
   vertical-align: middle;
   margin: 0 10px;
+}
+footer .hover-button {
+  margin-left: 25rem;
 }
 footer .box {
   width: 20px;
@@ -88,7 +113,8 @@ footer .box {
   margin-block: 30px;
   padding-block: 20px;
   padding-inline: 60px;
-  border: solid 1px #e7e7eb;
+  outline: solid 1px #e7e7eb;
+  border: none;
   background-color: inherit;
   color: white;
   font-size: 1.2rem;
@@ -98,6 +124,12 @@ footer .box {
   background-color: #00ffff;
   color: #0b113b;
   font-weight: bold;
+  outline: none;
   border: none;
   box-shadow: 0px 0px 15px 5px #00ffff;
+}
+
+input[type="checkbox"] {
+  margin: 0;
+  vertical-align: middle;
 }
