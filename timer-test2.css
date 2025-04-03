@@ -1,0 +1,48 @@
+body {
+  font-family: "Outfit", sans-serif;
+  background-color: darkmagenta;
+  color: #fff;
+}
+
+#timer-container {
+  display: inline-block;
+  margin-left: 70%;
+  text-align: center;
+}
+
+.text-area {
+  color: #fff;
+  fill: #fff;
+}
+
+.upper-inner-text {
+  color: #fff;
+  fill: #fff;
+  font-size: 0.15em;
+  text-transform: uppercase;
+  text-anchor: middle;
+  -moz-transform: translateY(-5rem);
+  -ms-transform: translateY(-5rem);
+  -webkit-transform: translateY(-5rem);
+  transform: translateY(-5rem);
+}
+
+.inner-number {
+  color: #fff;
+  fill: #fff;
+  font-size: 0.8em;
+  line-height: 1;
+  text-anchor: middle;
+}
+
+.under-inner-text {
+  color: #fff;
+  fill: #fff;
+  font-size: 0.15em;
+  text-transform: uppercase;
+  text-anchor: middle;
+  -moz-transform: translateY(2rem);
+  -ms-transform: translateY(2rem);
+  -webkit-transform: translateY(2rem);
+  transform: translateY(2rem);
+}

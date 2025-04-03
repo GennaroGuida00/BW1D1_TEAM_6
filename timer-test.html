@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="timer-test.css" />
+    <title>TIMER-TEST</title>
+  </head>
+  <body>
+    <div id="timer-container">
+      <svg width=" 100%" height="100%" viewBox="0 0 42 42" class="donut">
+        <circle class="hole" cx="21" cy="21" r="15.91549430918954" fill="transparent"></circle>
+        <!-- il cerchio di colore non turchese sta sopra perchè altrimenti il contatore andrebbe al contrario,
+          essendo stroke-dashoffset (la proprietà con cui si setta il punto di partenza alle ore 12) una proprietà che va in senso antiorario
+          stroke-dasharray (la proprietà che setta i valori estremi del segmento di cerchio sovrastante) parte da "0 100" e arriva a "100 0",
+          valore al quale avremo solo il turchese=> è il cerchio turchese che commpare man mano che l'altro regredisce
+          !IMPORTANTE! sono esattamente questi valori che vanno associati alle funzioni js per animare il contatore
+          100=60s; 0=0s
+          -->
+        <circle class="blueRing" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#00ffff" stroke-width="3.95"></circle>
+        <circle
+          class="violetRing"
+          cx="21"
+          cy="21"
+          r="15.91549430918954"
+          fill="transparent"
+          stroke="#9A6A9E"
+          stroke-width="4"
+          stroke-dasharray="65 35"
+          stroke-dashoffset="25"
+        ></circle>
+        <!-- 
+        <g class="text-area">
+          <text x="50%" y="50%" class="upper-inner-text">seconds</text>
+          <text x="50%" y="50%" class="inner-number">60</text>
+          <text x="50%" y="50%" class="under-inner-text">remaining</text>
+        </g>
+      
+       -->
+      </svg>
+      <div class="text-area">
+        seconds <br />
+        <span>60</span> <br />
+        remaining
+      </div>
+    </div>
+
+    <div id="results-container">
+      <svg width=" 100%" height="100%" viewBox="0 0 42 42" class="donut">
+        <circle class="results-hole" cx="21" cy="21" r="15.91549430918954" fill="transparent"></circle>
+        <!-- il cerchio di colore non turchese sta sopra perchè altrimenti il contatore andrebbe al contrario,
+          essendo stroke-dashoffset (la proprietà con cui si setta il punto di partenza alle ore 12) una proprietà che va in senso antiorario
+          stroke-dasharray (la proprietà che setta i valori estremi del segmento di cerchio sovrastante) parte da "0 100" e arriva a "100 0",
+          valore al quale avremo solo il turchese=> è il cerchio turchese che commpare man mano che l'altro regredisce
+          !IMPORTANTE! sono esattamente questi valori che vanno associati alle funzioni js per animare il contatore
+          100=10esatte; 0=0esatte
+          -->
+        <circle class="correct-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#00ffff" stroke-width="3.95"></circle>
+        <circle
+          class="wrong-ring"
+          cx="21"
+          cy="21"
+          r="15.91549430918954"
+          fill="transparent"
+          stroke="#C2128D"
+          stroke-width="4"
+          stroke-dasharray="25 75"
+          stroke-dashoffset="25"
+        ></circle>
+        <!-- 
+        <g id="positive-resuts-area">
+          <text x="50%" y="50%" class="upper-text">Congratulations!</text>
+          <text x="50%" y="50%" class="blue-upper-text">You passed the exam.</text>
+          <text x="50%" y="50%" class="first-under-text">We'll send you the certificate</text>
+          <text x="50%" y="50%" class="second-under-text">in few minutes.</text>
+          <text x="50%" y="50%" class="third-under-text">Check your email (including</text>
+          <text x="50%" y="50%" class="fourth-under-text">promotions/span folder)</text>
+        </g>
+        <g id="negative-results-area">
+          <text x="50%" y="50%" class="upper-text">Sorry, you</text>
+          <text x="50%" y="50%" class="blue-upper-text">didn't passed the exam.</text>
+        </g>
+          -->
+      </svg>
+      <div id="positive-resuts-area">
+        <h3>Congratulations! <span>You passed the exam.</span></h3>
+        <h5>We'll send you the certificate in few minutes. Check your email (including promotions/span folder)</h5>
+      </div>
+      <div id="negative-results-area">
+        <h3>Sorry!<span>You didn't passed the exam.</span></h3>
+      </div>
+    </div>
+    <script src="timer-test.js"></script>
+  </body>
+</html>
