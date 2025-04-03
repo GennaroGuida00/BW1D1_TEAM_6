@@ -3,8 +3,28 @@ body {
   width: 100%;
 }
 
+#timer {
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  color: white;
+  position: relative;
+  text-align: center;
+  float: right;
+}
+
+#timer p {
+  margin: 10px 0px;
+  font-size: 15px;
+}
+#timer #seconds {
+  font-size: 70px;
+  margin: 0;
+}
+
 section {
   text-align: center;
+  margin: 0;
 }
 
 span {
@@ -56,4 +76,71 @@ h2 {
 
 #question-counter {
   margin-top: 5rem;
+}
+
+#results {
+  display: none;
+  text-align: center;
+  width: 100%;
+}
+#statics {
+  display: block;
+  width: 100%;
+}
+#correct,
+#wrong {
+  display: inline-block;
+  width: 24%;
+  text-align: left;
+}
+#grafic {
+  display: inline-block;
+  width: 30%;
+}
+.RateUs {
+  text-align: center;
+}
+.hover-button {
+  margin: 0;
+}
+
+h1,
+h6 {
+  margin: 10px;
+  font-size: 80px;
+}
+.chart-text {
+  font: 16px/1.4em "Inter", Arial, sans-serif;
+  fill: #fff;
+}
+
+.chart-title {
+  font-size: 0.1em;
+  font-weight: 600;
+  line-height: 1;
+  text-anchor: middle;
+  -moz-transform: translateY(-4em);
+  -ms-transform: translateY(-4em);
+  -webkit-transform: translateY(-4em);
+  transform: translateY(-4em);
+}
+
+.chart-subtitle {
+  font-size: 0.1em;
+  font-weight: 600;
+  fill: #00ffff;
+  text-anchor: middle;
+  -moz-transform: translateY(-2.8em);
+  -ms-transform: translateY(-2.8em);
+  -webkit-transform: translateY(-2.8em);
+  transform: translateY(-2.8em);
+}
+
+.chart-certificate {
+  font-size: 0.1em;
+  text-anchor: middle;
+  -moz-transform: translateY(00.2em);
+  -ms-transform: translateY(0.2em);
+  -webkit-transform: translateY(0.2em);
+  transform: translateY(0.2em);
 }
