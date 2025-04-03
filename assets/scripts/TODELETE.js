@@ -84,59 +84,141 @@ const quizQuestions = [
 let questionIndex = 0;
 let scoreCorrect = 0;
 let scoreWrong = 0;
+let timer;
 
 const questionTitle = document.getElementById("quiz-question-title");
 const possibleAnswers = document.getElementById("quiz-possible-answers");
 const questionCounter = document.querySelector("p span");
+const timerDisplay = document.getElementById("quiz-timer");
+const questionCounterToHide = document.getElementById("questionIndex");
 
-//funzione per aggiungere domande e bottoni:
-const addQuestion = function () {
-  //svuoto ogni volta il contenuto del div
-  possibleAnswers.innerHTML = "";
+document.addEventListener("DOMContentLoaded", function () {
+  //funzione per aggiungere domande e bottoni:
+  const addQuestion = function () {
+    //resetto il timer
+    clearTimeout(timer);
 
-  //do il titolo ad ogni fomanda con il suo indice
-  const everyQuestion = quizQuestions[questionIndex];
-  questionTitle.innerText = everyQuestion.question;
+    //svuoto ogni volta il contenuto del div
+    possibleAnswers.innerHTML = "";
 
-  //prendo l'array di risposte errate e la risposta corretta e le assegno randomicamente:
+    //do il titolo ad ogni fomanda con il suo indice
+    const everyQuestion = quizQuestions[questionIndex];
+    questionTitle.innerText = everyQuestion.question;
 
-  const answers = [...everyQuestion.incorrect_answers, everyQuestion.correct_answer];
-  answers.sort(() => Math.random() - 0.5);
-
-  //per ogni risposta creo un bottone
-  answers.forEach((answer) => {
-    const button = document.createElement("button");
-    button.innerText = answer;
-    button.classList.add("answer-button");
-    //ad ogni click sul bottone mi va avant la domanda (grazie all'indice)
-    button.addEventListener("click", function () {
-      questionIndex++;
-
-      if (questionIndex < quizQuestions.length) {
-        addQuestion();
-      }
-      /*TO DO add event listener per andare alla pagina del resulto*/
-    });
-
-    possibleAnswers.appendChild(button);
-  });
-};
-addQuestion();
-
-// per ogni riposta creo un bottone (in base al numero di risposte che ha everyQuestion)
-/* answers.forEach((answer) => {
-    const button = document.createElement("button");
-    button.innerText = answer;
-    button.classList.add("answer-button");
-
-    button.addEventListener("click", function () {
-      questionIndex++;
-    });
-    if (questionIndex < quizQuestions.length) {
-      addQuestion();
+    if (questionIndex >= everyQuestion.length) {
+      results();
     }
-    possibleAnswers.appendChild(button);
-  });
-};
 
-addQuestion();*/
+    //contatore delle domande
+
+    document.getElementById("currentQuestion").innerText = questionIndex + 1;
+    document.getElementById("allQuestions").innerText = `/ ${quizQuestions.length}`;
+    document.getElementById("currentQuestion").style.color = "#fff";
+
+    //prendo l'array di risposte errate e la risposta corretta e le assegno randomicamente:
+
+    const answers = [...everyQuestion.incorrect_answers, everyQuestion.correct_answer];
+    answers.sort(() => Math.random() - 0.5);
+
+    //per ogni risposta creo un bottone
+    answers.forEach((answer) => {
+      const button = document.createElement("button");
+      button.innerText = answer;
+      button.classList.add("answer-button");
+
+      //ad ogni click sul bottone mi va avant la domanda (grazie all'indice)
+      button.addEventListener("click", function () {
+        clearTimeout(timer);
+        if (answer === everyQuestion.correct_answer) {
+          scoreCorrect++;
+        } else {
+          scoreWrong++;
+        }
+
+        questionIndex++;
+
+        if (questionIndex < quizQuestions.length) {
+          addQuestion();
+        } else {
+          possibleAnswers.className = "display";
+          questionCounterToHide.className = "display";
+          results();
+        }
+      });
+
+      possibleAnswers.appendChild(button);
+    });
+    startTimer();
+  };
+  //funzione che mi fa iniziare il timer
+  const startTimer = function () {
+    let timeLeft = 30;
+    const innerNumber = document.getElementById("inner-number");
+    innerNumber.textContent = timeLeft;
+    /*const innerNumber = document.getElementById("timer-container");
+    innerNumber.innerText = timeLeft;*/
+
+    timer = setInterval(() => {
+      timeLeft--;
+      innerNumber.textContent = timeLeft;
+      if (timeLeft === 0) {
+        clearInterval(timer);
+        scoreWrong++;
+        questionIndex++;
+        if (questionIndex < quizQuestions.length) {
+          addQuestion();
+        } else {
+          possibleAnswers.className = "display";
+          results();
+        }
+      }
+    }, 1000);
+  };
+
+  const results = function () {
+    // Rendo il grafico visibile
+    const grafico = document.getElementById("grafico");
+    grafico.classList.remove("display");
+    grafico.classList.add("visible");
+
+    // Rendo il bottone visibile
+    const bottone = document.getElementById("bottone");
+    bottone.className = "visible";
+
+    // Cambio il titolo di question in result
+    questionTitle.innerText = "Results";
+    questionTitle.classList.add("fontFamily");
+
+    const correctAnswers = document.getElementById("correct-answers");
+    const wrongAnswers = document.getElementById("wrong-answers");
+
+    // Rendo il grafico visibile
+    const div = document.getElementById("results");
+    div.classList.remove("display");
+    div.classList.add("visible");
+
+    // Dinamicamente faccio apparire i punteggi
+    correctAnswers.innerText = scoreCorrect;
+    wrongAnswers.innerText = scoreWrong;
+
+    // Nascondo il timer
+    const timerContainer = document.getElementById("timer-container");
+    timerContainer.className = "display";
+    timerContainer.innerText = "";
+
+    // Seleziono correttamente l'elemento
+    const textInside = document.getElementById("text-inside");
+
+    if (textInside) {
+      if (scoreCorrect >= scoreWrong) {
+        textInside.textContent = "Congratulation, you've passed the exam!";
+        textInside.classList.add("inner-text");
+      } else {
+        textInside.textContent = "Sorry, you have to repeat the exam";
+        textInside.classList.add("inner-text");
+      }
+    }
+  };
+
+  addQuestion();
+});
