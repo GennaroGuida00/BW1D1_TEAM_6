@@ -75,6 +75,7 @@ footer {
   text-align: center;
   margin-left: 0;
   margin-top: 0;
+  margin-bottom: 2rem;
   padding: 2rem;
 }
 
@@ -92,7 +93,9 @@ footer .box {
 
 #correct-answers,
 #wrong-answers,
-#grafico {
+#grafico,
+#correct,
+#wrong {
   display: inline-block;
   vertical-align: middle;
   margin: 0 10px;
@@ -144,4 +147,27 @@ footer .box {
 }
 header {
   margin: 0;
+}
+#correct-answers {
+  text-align: center;
+  font-weight: lighter;
+  font-size: 3rem;
+}
+#wrong-answers {
+  text-align: center;
+  font-weight: lighter;
+  font-size: 3rem;
+}
+p {
+  text-align: center;
+  font-weight: 300;
+  font-size: 3.5rem;
+}
+
+.inner-text {
+  font-size: 2px;
+  line-height: 1;
+  text-anchor: middle;
+  position: absolute;
+  color: #fff;
 }

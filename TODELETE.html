@@ -26,7 +26,7 @@
             <circle class="blueRing" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#00ffff" stroke-width="4" stroke-dashoffset=""></circle>
             <g class="text-area">
               <text x="50%" y="50%" class="upper-inner-text">second</text>
-              <text x="50%" y="50%" class="inner-number"></text>
+              <text x="50%" y="50%" id="inner-number"></text>
 
               <text x="50%" y="50%" class="under-inner-text">remaining</text>
             </g>
@@ -45,6 +45,7 @@
 
           <div id="results" class="display">
             <div id="results-container">
+              <h4 id="correct">Correct</h4>
               <p id="correct-answers"></p>
 
               <div id="grafico" class="display">
@@ -63,12 +64,12 @@
                   ></circle>
                   <g class="text-area">
                     <text x="50%" y="50%" class="upper-inner-text"></text>
-                    <text x="50%" y="50%"></text>
+                    <text x="50%" y="50%" id="text-inside"></text>
                     <text x="50%" y="50%" class="under-inner-text"></text>
                   </g>
                 </svg>
               </div>
-
+              <h4 id="wrong">Wrong</h4>
               <p id="wrong-answers"></p>
             </div>
           </div>

@@ -152,15 +152,15 @@ document.addEventListener("DOMContentLoaded", function () {
   };
   //funzione che mi fa iniziare il timer
   const startTimer = function () {
-    let timeLeft = 3;
-    /* const innerNumber = document.getElementById("countdown");
+    let timeLeft = 30;
+    const innerNumber = document.getElementById("inner-number");
+    innerNumber.textContent = timeLeft;
+    /*const innerNumber = document.getElementById("timer-container");
     innerNumber.innerText = timeLeft;*/
-    const innerNumber = document.getElementById("timer-container");
-    innerNumber.innerText = timeLeft;
 
     timer = setInterval(() => {
       timeLeft--;
-      innerNumber.innerText = timeLeft;
+      innerNumber.textContent = timeLeft;
       if (timeLeft === 0) {
         clearInterval(timer);
         scoreWrong++;
@@ -174,23 +174,51 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }, 1000);
   };
+
   const results = function () {
+    // Rendo il grafico visibile
     const grafico = document.getElementById("grafico");
     grafico.classList.remove("display");
     grafico.classList.add("visible");
+
+    // Rendo il bottone visibile
     const bottone = document.getElementById("bottone");
     bottone.className = "visible";
+
+    // Cambio il titolo di question in result
     questionTitle.innerText = "Results";
+    questionTitle.classList.add("fontFamily");
+
     const correctAnswers = document.getElementById("correct-answers");
     const wrongAnswers = document.getElementById("wrong-answers");
+
+    // Rendo il grafico visibile
     const div = document.getElementById("results");
     div.classList.remove("display");
     div.classList.add("visible");
-    correctAnswers.innerText = `Correct: ${scoreCorrect}`;
-    wrongAnswers.innerText = `Wrong: ${scoreWrong}`;
+
+    // Dinamicamente faccio apparire i punteggi
+    correctAnswers.innerText = scoreCorrect;
+    wrongAnswers.innerText = scoreWrong;
+
+    // Nascondo il timer
     const timerContainer = document.getElementById("timer-container");
     timerContainer.className = "display";
     timerContainer.innerText = "";
+
+    // Seleziono correttamente l'elemento
+    const textInside = document.getElementById("text-inside");
+
+    if (textInside) {
+      if (scoreCorrect >= scoreWrong) {
+        textInside.textContent = "Congratulation, you've passed the exam!";
+        textInside.classList.add("inner-text");
+      } else {
+        textInside.textContent = "Sorry, you have to repeat the exam";
+        textInside.classList.add("inner-text");
+      }
+    }
   };
+
   addQuestion();
 });
