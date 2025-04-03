@@ -18,8 +18,22 @@
     <main>
       <header>
         <img id="logo" src="./assets/epicode_logo.png" alt="Epicode Logo" />
-        <p id="quiz-timer"></p>
+
+        <div id="timer-container">
+          <svg width=" 100%" height="100%" viewBox="0 0 42 42" class="donut">
+            <circle class="hole" cx="21" cy="21" r="15.91549430918954" fill="transparent"></circle>
+            <circle class="violetRing" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#9A6A9E" stroke-width="4"></circle>
+            <circle class="blueRing" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#00ffff" stroke-width="4" stroke-dashoffset=""></circle>
+            <g class="text-area">
+              <text x="50%" y="50%" class="upper-inner-text">second</text>
+              <text x="50%" y="50%" class="inner-number"></text>
+
+              <text x="50%" y="50%" class="under-inner-text">remaining</text>
+            </g>
+          </svg>
+        </div>
       </header>
+
       <section>
         <div id="quiz-question-div">
           <h2 id="quiz-question-title">Test</h2>
@@ -27,15 +41,41 @@
             <!-- <div id="first-and-second-answers"><button class="answer-button">Answer 1</button><button class="answer-button">Answer 2</button></div>
             <div id="third-and-fourth-answers"><button class="answer-button">Answer 3</button><button class="answer-button">Answer 4</button></div>
         -->
-            <p id="correct-answers" class="inline"></p>
-            <p id="wrong-answers" class="inline"></p>
           </div>
-          <div id="grafico" class="display" class="inline">
-            <svg width="200" height="200">
-              <circle cx="100" cy="100" r="100" id="cerchio" stroke="deepskyblue" stroke-width="10" fill="none" />
-            </svg>
+
+          <div id="results" class="display">
+            <div id="results-container">
+              <p id="correct-answers"></p>
+
+              <div id="grafico" class="display">
+                <svg width=" 100%" height="100%" viewBox="0 0 42 42" class="ciambella">
+                  <circle class="hole" cx="21" cy="21" r="15.91549430918954" fill="transparent"></circle>
+                  <circle class="violetRing" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#9A6A9E" stroke-width="4"></circle>
+                  <circle
+                    class="blueRing"
+                    cx="21"
+                    cy="21"
+                    r="15.91549430918954"
+                    fill="transparent"
+                    stroke="#00ffff"
+                    stroke-width="4"
+                    stroke-dashoffset=""
+                  ></circle>
+                  <g class="text-area">
+                    <text x="50%" y="50%" class="upper-inner-text"></text>
+                    <text x="50%" y="50%"></text>
+                    <text x="50%" y="50%" class="under-inner-text"></text>
+                  </g>
+                </svg>
+              </div>
+
+              <p id="wrong-answers"></p>
+            </div>
           </div>
-          <h3 id="question-counter">Question <span id="currentQuestion"></span> <span id="allQuestions"></span></h3>
+
+          <div id="questionIndex" class="visible">
+            <h3 id="question-counter">Question <span id="currentQuestion"></span> <span id="allQuestions"></span></h3>
+          </div>
         </div>
       </section>
     </main>

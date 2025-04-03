@@ -74,7 +74,8 @@ footer {
   position: relative;
   text-align: center;
   margin-left: 0;
-  margin-top: 3rem;
+  margin-top: 0;
+  padding: 2rem;
 }
 
 footer .hover-button {
@@ -82,4 +83,65 @@ footer .hover-button {
 }
 footer .box {
   width: 100%;
+}
+
+#results-container {
+  text-align: center;
+  white-space: nowrap;
+}
+
+#correct-answers,
+#wrong-answers,
+#grafico {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px;
+}
+
+#timer-container {
+  display: inline-block;
+  margin-left: 70%;
+  text-align: center;
+  max-width: 100px;
+  margin-top: 0;
+}
+
+.text-area {
+  color: #fff;
+  fill: #fff;
+  -moz-transform: translateY(0.25em);
+  -ms-transform: translateY(0.25em);
+  -webkit-transform: translateY(0.25em);
+  transform: translateY(0.25em);
+}
+
+.upper-inner-text {
+  font-size: 0.15em;
+  text-transform: uppercase;
+  text-anchor: middle;
+  -moz-transform: translateY(-5em);
+  -ms-transform: translateY(-5em);
+  -webkit-transform: translateY(-5em);
+  transform: translateY(-5em);
+}
+
+.under-inner-text {
+  font-size: 0.15em;
+  text-transform: uppercase;
+  text-anchor: middle;
+  -moz-transform: translateY(2em);
+  -ms-transform: translateY(2em);
+  -webkit-transform: translateY(2em);
+  transform: translateY(2em);
+}
+
+.inner-number {
+  font-size: 0.8em;
+  line-height: 1;
+  text-anchor: middle;
+  position: absolute;
+  color: #fff;
+}
+header {
+  margin: 0;
 }
