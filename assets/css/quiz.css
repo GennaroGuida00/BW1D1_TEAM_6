@@ -106,20 +106,36 @@ h2 {
   display: none;
   text-align: center;
   width: 100%;
-  border: 1px solid green;
+
+  margin-top: 10rem;
 }
 #statics {
-  display: inline-block;
-  width: 100rem;
+  display: flex;
+  width: 90rem;
   vertical-align: middle;
-  border: 1px solid red;
+
+  margin: auto;
+  margin-top: 5rem;
 }
 #correct,
 #wrong {
-  border: 1px solid yellow;
+  margin: auto;
+
   display: inline-block;
   width: 24%;
 }
+
+#correct > h1,
+#wrong > h1 {
+  font-weight: 300;
+}
+
+h5 {
+  font-size: 3.75;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
 #correct {
   text-align: left;
 }
@@ -135,6 +151,7 @@ h2 {
 }
 .hover-button {
   margin: 0;
+  margin-top: 5rem;
 }
 
 h1,
@@ -176,4 +193,15 @@ h6 {
   -ms-transform: translateY(0.2em);
   -webkit-transform: translateY(0.2em);
   transform: translateY(0.2em);
+}
+.font-pink {
+  color: #d20094;
+}
+h1 {
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 2rem;
+  font-weight: 300;
 }
