@@ -112,7 +112,14 @@ footer .box {
   width: 20px;
   height: 20px;
 }
+
+button {
+  font-family: Inter;
+  letter-spacing: 1px;
+}
+
 .hover-button {
+  font-weight: 600;
   text-align: center;
   margin-left: 100px;
   margin-block: 30px;
