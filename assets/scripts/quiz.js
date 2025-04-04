@@ -85,12 +85,12 @@ let correct = 0;
 let wrong = 0;
 let questionNumber = 0;
 let time = 0;
-const totalTime = 5;
+const totalTime = 60;
 let seconds = document.getElementById("seconds");
 let second;
 document.addEventListener("DOMContentLoaded", function () {
   function generateQs() {
-    time = 5;
+    time = 60;
     seconds.textContent = time;
 
     if (second != 0) {
@@ -112,15 +112,10 @@ document.addEventListener("DOMContentLoaded", function () {
       time--;
       seconds.textContent = time;
       blueRing.setAttribute("stroke-dashoffset", "100");
-      //calcolo la percentuale di tempo trascorso in secondi
-      const progress = ((totalTime - time) / totalTime) * 100;
-      const newOffset = 100 - progress;
-      //svuoto il cerchio blu in base al tempo trascorso
-      blueRing.setAttribute("stroke-dashoffset", newOffset);
 
-      if (time === totalTime) {
-        blueRing.setAttribute("stroke-dashoffset", 100);
-      }
+      const progress = ((totalTime - time) / totalTime) * 100;
+
+      blueRing.setAttribute("stroke-dasharray", `${0 + progress} ${100 - progress}`);
 
       if (time === 0) {
         clearInterval(second);
