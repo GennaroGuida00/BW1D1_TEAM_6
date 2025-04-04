@@ -169,5 +169,10 @@ p {
   line-height: 1;
   text-anchor: middle;
   position: absolute;
-  color: #fff;
+  fill: white;
+}
+
+#correct-number,
+#wrong-number {
+  display: inline-block;
 }
