@@ -145,6 +145,7 @@ function generateQs() {
 
     document.getElementById("quiz-possible-answers").appendChild(button);
   }
+  startTimer();
 }
 
 function showResults() {
@@ -179,3 +180,26 @@ function showResults() {
 }
 
 generateQs();
+
+const header = document.querySelector("header");
+const createDiv = document.createElement("div");
+const time = document.createElement("p");
+header.appendChild(createDiv);
+createDiv.appendChild(time);
+
+function startTimer() {
+  seconds = 60;
+  if (timed) {
+    clearInterval(timed);
+  }
+  timed = setInterval(timer, 1000);
+}
+
+function timer() {
+  if (seconds > 0) {
+    seconds--;
+    time.innerText = seconds;
+  } else {
+    clearInterval(timed);
+  }
+}
