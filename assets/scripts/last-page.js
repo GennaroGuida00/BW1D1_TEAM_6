@@ -12,7 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
   const button = document.querySelector(".hover-button");
+  const textform = document.getElementById("textform");
   button.addEventListener("click", function () {
-    alert("Feedback sent!");
+    if (textform.value === "") {
+      alert("fill the text field");
+    } else {
+      alert("Feedback sent!");
+    }
   });
 });
