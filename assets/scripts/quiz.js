@@ -85,6 +85,8 @@ const questionTitle = document.getElementById("quiz-question-title");
 const answersButton = document.querySelectorAll(".answer-button");
 let userPoints = 0;
 let questionNumber = 0;
+let seconds;
+let timed;
 
 function generateQs() {
   const question = quizQuestions[questionNumber];
@@ -102,11 +104,41 @@ function generateQs() {
     button.innerText = allAnswers[i];
     button.classList.add("answer-button");
     button.onclick = function (e) {
+      if (allAnswers[i] === question.correct_answer) {
+        userPoints++;
+        console.log("correct");
+      } else {
+        console.log("incorrect");
+      }
       questionNumber++;
       generateQs();
     };
     document.getElementById("quiz-possible-answers").appendChild(button);
   }
+  startTimer();
 }
 
 generateQs();
+
+const header = document.querySelector("header");
+const createDiv = document.createElement("div");
+const time = document.createElement("p");
+header.appendChild(createDiv);
+createDiv.appendChild(time);
+
+function startTimer() {
+  seconds = 60;
+  if (timed) {
+    clearInterval(timed);
+  }
+  timed = setInterval(timer, 1000);
+}
+
+function timer() {
+  if (seconds > 0) {
+    seconds--;
+    time.innerText = seconds;
+  } else {
+    clearInterval(timed);
+  }
+}
