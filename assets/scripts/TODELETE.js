@@ -52,8 +52,8 @@ const quizQuestions = [
     difficulty: "easy",
     category: "Science: Computers",
     question: "What does the Prt Sc button do?",
-    correct_answer: "Captures what&#039;s on the screen and copies it to your clipboard",
-    incorrect_answers: ["Nothing", "Saves a .png file of what&#039;s on the screen in your screenshots folder in photos", "Closes all windows"],
+    correct_answer: "Captures what's on the screen and copies it to your clipboard",
+    incorrect_answers: ["Nothing", "Saves a .png file of what's on the screen in your screenshots folder in photos", "Closes all windows"],
   },
   {
     type: "multiple",
@@ -93,40 +93,30 @@ const timerDisplay = document.getElementById("quiz-timer");
 const questionCounterToHide = document.getElementById("questionIndex");
 
 document.addEventListener("DOMContentLoaded", function () {
-  //funzione per aggiungere domande e bottoni:
   const addQuestion = function () {
-    //resetto il timer
     clearTimeout(timer);
-
-    //svuoto ogni volta il contenuto del div
     possibleAnswers.innerHTML = "";
 
-    //do il titolo ad ogni fomanda con il suo indice
     const everyQuestion = quizQuestions[questionIndex];
     questionTitle.innerText = everyQuestion.question;
 
-    if (questionIndex >= everyQuestion.length) {
+    if (questionIndex >= quizQuestions.length) {
       results();
+      return;
     }
-
-    //contatore delle domande
 
     document.getElementById("currentQuestion").innerText = questionIndex + 1;
     document.getElementById("allQuestions").innerText = `/ ${quizQuestions.length}`;
     document.getElementById("currentQuestion").style.color = "#fff";
-
-    //prendo l'array di risposte errate e la risposta corretta e le assegno randomicamente:
-
+    //ordine delle risposte random
     const answers = [...everyQuestion.incorrect_answers, everyQuestion.correct_answer];
     answers.sort(() => Math.random() - 0.5);
-
-    //per ogni risposta creo un bottone
+    //creo i bottoni delle risposte
     answers.forEach((answer) => {
       const button = document.createElement("button");
       button.innerText = answer;
       button.classList.add("answer-button");
 
-      //ad ogni click sul bottone mi va avant la domanda (grazie all'indice)
       button.addEventListener("click", function () {
         clearTimeout(timer);
         if (answer === everyQuestion.correct_answer) {
@@ -148,19 +138,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
       possibleAnswers.appendChild(button);
     });
+
     startTimer();
   };
-  //funzione che mi fa iniziare il timer
+
   const startTimer = function () {
     let timeLeft = 30;
+    const totalTime = 30;
     const innerNumber = document.getElementById("inner-number");
+    const blueRing = document.querySelector(".blueRing");
+
     innerNumber.textContent = timeLeft;
-    /*const innerNumber = document.getElementById("timer-container");
-    innerNumber.innerText = timeLeft;*/
+    blueRing.setAttribute("stroke-dashoffset", "100");
 
     timer = setInterval(() => {
       timeLeft--;
       innerNumber.textContent = timeLeft;
+      //calcolo la percentuale di tempo trascorso in secondi
+      const progress = ((totalTime - timeLeft) / totalTime) * 100;
+      const newOffset = 100 - progress;
+      //svuoto il cerchio blu in base al tempo trascorso
+      blueRing.setAttribute("stroke-dashoffset", newOffset.toString());
+
       if (timeLeft === 0) {
         clearInterval(timer);
         scoreWrong++;
@@ -168,45 +167,39 @@ document.addEventListener("DOMContentLoaded", function () {
         if (questionIndex < quizQuestions.length) {
           addQuestion();
         } else {
-          possibleAnswers.className = "display";
+          possibleAnswers.className = "display"; //nascondo timer
+          questionCounterToHide.className = "display"; //nascondo counter
           results();
         }
       }
     }, 1000);
   };
-
+  //funzione pagina dei risultati
   const results = function () {
-    // Rendo il grafico visibile
     const grafico = document.getElementById("grafico");
     grafico.classList.remove("display");
     grafico.classList.add("visible");
 
-    // Rendo il bottone visibile
     const bottone = document.getElementById("bottone");
     bottone.className = "visible";
 
-    // Cambio il titolo di question in result
     questionTitle.innerText = "Results";
     questionTitle.classList.add("fontFamily");
 
     const correctAnswers = document.getElementById("correct-answers");
     const wrongAnswers = document.getElementById("wrong-answers");
 
-    // Rendo il grafico visibile
     const div = document.getElementById("results");
     div.classList.remove("display");
     div.classList.add("visible");
 
-    // Dinamicamente faccio apparire i punteggi
     correctAnswers.innerText = scoreCorrect;
     wrongAnswers.innerText = scoreWrong;
 
-    // Nascondo il timer
     const timerContainer = document.getElementById("timer-container");
     timerContainer.className = "display";
     timerContainer.innerText = "";
 
-    // Seleziono correttamente l'elemento
     const textInside = document.getElementById("text-inside");
 
     if (textInside) {
