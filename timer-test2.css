@@ -7,12 +7,12 @@ body {
 #timer-container {
   display: inline-block;
   margin-left: 70%;
-  text-align: center;
 }
 
 .text-area {
   color: #fff;
   fill: #fff;
+  text-anchor: middle;
 }
 
 .upper-inner-text {
@@ -20,7 +20,6 @@ body {
   fill: #fff;
   font-size: 0.15em;
   text-transform: uppercase;
-  text-anchor: middle;
   -moz-transform: translateY(-5rem);
   -ms-transform: translateY(-5rem);
   -webkit-transform: translateY(-5rem);
@@ -28,11 +27,11 @@ body {
 }
 
 .inner-number {
+  text-align: center;
   color: #fff;
   fill: #fff;
   font-size: 0.8em;
   line-height: 1;
-  text-anchor: middle;
 }
 
 .under-inner-text {
@@ -40,7 +39,6 @@ body {
   fill: #fff;
   font-size: 0.15em;
   text-transform: uppercase;
-  text-anchor: middle;
   -moz-transform: translateY(2rem);
   -ms-transform: translateY(2rem);
   -webkit-transform: translateY(2rem);
