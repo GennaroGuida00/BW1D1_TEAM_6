@@ -81,12 +81,17 @@ const quizQuestions = [
   },
 ];
 
-const questionTitle = document.getElementById("quiz-question-title");
-const answersButton = document.querySelectorAll(".answer-button");
-let userPoints = 0;
+let correct = 0;
+let wrong = 0;
 let questionNumber = 0;
+let time = 5;
+let seconds = document.getElementById("seconds");
+let timerInterval;
 
 function generateQs() {
+  clearInterval(timerInterval);
+  time = 5;
+  seconds.textContent = time;
   const question = quizQuestions[questionNumber];
   document.getElementById("quiz-question-title").innerText = question.question;
   const allAnswers = [...question.incorrect_answers, question.correct_answer];
@@ -97,16 +102,70 @@ function generateQs() {
   document.getElementById("allQuestions").innerText = "/ " + quizQuestions.length;
   document.getElementById("quiz-possible-answers").innerHTML = "";
 
+  let second = setInterval(function () {
+    time--;
+    seconds.textContent = time;
+
+    if (time === 0) {
+      clearInterval(second);
+      questionNumber++;
+      wrong++;
+
+      if (questionNumber < quizQuestions.length) {
+        generateQs();
+      } else {
+        showResults();
+      }
+    }
+  }, 1000);
+
   for (let i = 0; i < allAnswers.length; i++) {
     const button = document.createElement("button");
     button.innerText = allAnswers[i];
     button.classList.add("answer-button");
     button.onclick = function (e) {
+      if (allAnswers[i] === question.correct_answer) {
+        correct++;
+      } else {
+        wrong++;
+      }
+
       questionNumber++;
-      generateQs();
+
+      if (questionNumber < quizQuestions.length) {
+        generateQs();
+      } else {
+        showResults();
+      }
     };
+
     document.getElementById("quiz-possible-answers").appendChild(button);
   }
+}
+
+function showResults() {
+  let divresults = document.getElementById("results");
+  let divquiz = document.getElementById("quiz-question-div");
+  let divtimer = document.getElementById("timer");
+
+  divquiz.style.display = "none";
+  divtimer.style.display = "none";
+  divresults.style.display = "block";
+
+  document.getElementById("percorrect").innerText = correct * 10 + "%";
+  document.getElementById("perwrong").innerText = wrong * 10 + "%";
+  document.getElementById("numCorrectanswers").innerText = correct + " /10 questions";
+  document.getElementById("numWronganswers").innerText = wrong + " /10 questions";
+
+  if (wrong > 5) {
+    document.querySelector(".chart-title").textContent = "Sorry!";
+    document.querySelector(".chart-subtitle").textContent = "You don't passed the exam!";
+    document.querySelector(".chart-certificate").remove();
+  }
+
+  let grafic_segment = document.querySelector(".donut-segment");
+  let strokeDasharray = `${correct * 10} ${wrong * 10}`;
+  grafic_segment.setAttribute("stroke-dasharray", strokeDasharray);
 }
 
 generateQs();
