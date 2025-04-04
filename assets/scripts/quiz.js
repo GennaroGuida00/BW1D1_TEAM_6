@@ -112,15 +112,10 @@ document.addEventListener("DOMContentLoaded", function () {
       time--;
       seconds.textContent = time;
       blueRing.setAttribute("stroke-dashoffset", "100");
-      //calcolo la percentuale di tempo trascorso in secondi
-      const progress = ((totalTime - time) / totalTime) * 100;
-      const newOffset = 100 - progress;
-      //svuoto il cerchio blu in base al tempo trascorso
-      blueRing.setAttribute("stroke-dashoffset", newOffset);
 
-      if (time === totalTime) {
-        blueRing.setAttribute("stroke-dashoffset", 100);
-      }
+      const progress = ((totalTime - time) / totalTime) * 100;
+
+      blueRing.setAttribute("stroke-dasharray", `${0 + progress} ${100 - progress}`);
 
       if (time === 0) {
         clearInterval(second);
