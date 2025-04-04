@@ -20,15 +20,27 @@
     <main>
       <header>
         <img id="logo" src="./assets/epicode_logo.png" alt="Epicode Logo" />
-
-        <svg id="timer" width="225" height="225" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="112.5" cy="112.5" r="112.5" fill="none" stroke="#00ffff" stroke-width="40" />
-          <text x="112.5" y="50" font-family="Arial" font-size="16" text-anchor="middle" fill="white">SECONDS</text>
-          <text x="112.5" y="100" font-family="Arial" font-size="40" text-anchor="middle" fill="white">
-            <tspan id="seconds">60</tspan>
-          </text>
-          <text x="112.5" y="150" font-family="Arial" font-size="16" text-anchor="middle" fill="white">REMAINING</text>
-        </svg>
+        <div id="timer">
+          <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+            <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#00FFFF" stroke-width="3.5"></circle>
+            <circle
+              class="donut-timer"
+              cx="21"
+              cy="21"
+              r="15.91549430918954"
+              fill="transparent"
+              stroke="#9A6A9E"
+              stroke-width="3.5"
+              stroke-dasharray="100 0"
+              stroke-dashoffset="25"
+            ></circle>
+            <g class="chart-text-passed">
+              <text x="50%" y="50%" class="timer-title">SECONDS</text>
+              <text x="50%" y="50%" id="seconds">60</text>
+              <text x="50%" y="50%" class="timer-subtitle">REMAINING</text>
+            </g>
+          </svg>
+        </div>
       </header>
 
       <section>
@@ -45,13 +57,12 @@
         <div id="statics">
           <div id="correct">
             <h1>Correct</h1>
-            <h1 id="percorrect">00</h1>
+            <h1 id="percorrect"><span>00</span></h1>
             <p id="numCorrectanswers"></p>
           </div>
           <div id="grafic">
             <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
-              <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="transparent"></circle>
-              <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d20094" stroke-width="5"></circle>
+              <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#00FFFF" stroke-width="5"></circle>
 
               <circle
                 class="donut-segment"
@@ -59,10 +70,10 @@
                 cy="21"
                 r="15.91549430918954"
                 fill="transparent"
-                stroke="#00FFFF"
+                stroke="#d20094"
                 stroke-width="5"
                 stroke-dasharray="85 15"
-                stroke-dashoffset="35"
+                stroke-dashoffset="25"
               ></circle>
               <g class="chart-text">
                 <text x="50%" y="50%" class="chart-title">Congratulations!</text>

@@ -84,14 +84,18 @@ const quizQuestions = [
 let correct = 0;
 let wrong = 0;
 let questionNumber = 0;
-let time = 5;
+let time = 0;
 let seconds = document.getElementById("seconds");
-let timerInterval;
+let second;
 
 function generateQs() {
-  clearInterval(timerInterval);
-  time = 5;
+  time = 8;
   seconds.textContent = time;
+
+  if (second != 0) {
+    clearInterval(second);
+  }
+
   const question = quizQuestions[questionNumber];
   document.getElementById("quiz-question-title").innerText = question.question;
   const allAnswers = [...question.incorrect_answers, question.correct_answer];
@@ -102,7 +106,7 @@ function generateQs() {
   document.getElementById("allQuestions").innerText = "/ " + quizQuestions.length;
   document.getElementById("quiz-possible-answers").innerHTML = "";
 
-  let second = setInterval(function () {
+  second = setInterval(function () {
     time--;
     seconds.textContent = time;
 
@@ -156,16 +160,22 @@ function showResults() {
   document.getElementById("perwrong").innerText = wrong * 10 + "%";
   document.getElementById("numCorrectanswers").innerText = correct + " /10 questions";
   document.getElementById("numWronganswers").innerText = wrong + " /10 questions";
+  let strokeDasharray = 0;
+  let grafic_segment = document.querySelector(".donut-segment");
 
   if (wrong > 5) {
     document.querySelector(".chart-title").textContent = "Sorry!";
-    document.querySelector(".chart-subtitle").textContent = "You don't passed the exam!";
-    document.querySelector(".chart-certificate").remove();
-  }
+    document.querySelector(".chart-subtitle").textContent = "You didn't pass the exam!";
 
-  let grafic_segment = document.querySelector(".donut-segment");
-  let strokeDasharray = `${correct * 10} ${wrong * 10}`;
-  grafic_segment.setAttribute("stroke-dasharray", strokeDasharray);
+    strokeDasharray = `${wrong * 10} ${correct * 10}`;
+    grafic_segment.setAttribute("stroke-dasharray", strokeDasharray);
+    grafic_segment.setAttribute("stroke-dashoffset", -75);
+
+    document.querySelector(".chart-certificate").remove();
+  } else {
+    strokeDasharray = `${correct * 10} ${wrong * 10}`;
+    grafic_segment.setAttribute("stroke-dasharray", strokeDasharray);
+  }
 }
 
 generateQs();
