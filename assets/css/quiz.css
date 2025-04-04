@@ -13,13 +13,37 @@ body {
   float: right;
 }
 
-#timer p {
-  margin: 10px 0px;
-  font-size: 15px;
+.timer-title {
+  font-size: 0.15em;
+  line-height: 1;
+  fill: white;
+
+  text-anchor: middle;
+  -moz-transform: translateY(-3.5em);
+  -ms-transform: translateY(-3.5em);
+  -webkit-transform: translateY(-3.5em);
+  transform: translateY(-3.5em);
 }
-#timer #seconds {
-  font-size: 70px;
-  margin: 0;
+
+#seconds {
+  font-size: 0.8em;
+  font-weight: 600;
+  fill: white;
+  text-anchor: middle;
+  -moz-transform: translateY(0.35em);
+  -ms-transform: translateY(0.35em);
+  -webkit-transform: translateY(0.35em);
+  transform: translateY(0.35em);
+}
+
+.timer-subtitle {
+  font-size: 0.15em;
+  text-anchor: middle;
+  fill: white;
+  -moz-transform: translateY(4em);
+  -ms-transform: translateY(4em);
+  -webkit-transform: translateY(4em);
+  transform: translateY(4em);
 }
 
 section {
@@ -91,7 +115,12 @@ h2 {
 #wrong {
   display: inline-block;
   width: 24%;
+}
+#correct {
   text-align: left;
+}
+#wrong {
+  text-align: right;
 }
 #grafic {
   display: inline-block;
@@ -106,7 +135,7 @@ h2 {
 
 h1,
 h6 {
-  margin: 10px;
+  margin-bottom: 10px;
   font-size: 80px;
 }
 .chart-text {

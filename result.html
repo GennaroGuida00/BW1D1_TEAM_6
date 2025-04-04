@@ -30,9 +30,58 @@
         <p class="percentualCorrect"></p>
       </div>
 
-      <div id="grafico">
-        <svg width="200" height="200">
-          <circle cx="100" cy="100" r="100" id="cerchio" />
+      <div id="donut-chart">
+        <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+          <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#00FFFF" stroke-width="5.5"></circle>
+
+          <circle
+            class="donut-segment"
+            cx="21"
+            cy="21"
+            r="15.91549430918954"
+            fill="transparent"
+            stroke="#d20094"
+            stroke-width="5.5"
+            stroke-dasharray="20 80"
+            stroke-dashoffset="-75"
+          ></circle>
+          <g class="chart-text-passed">
+            <text x="50%" y="50%" class="chart-title">Congratulations!</text>
+            <text x="50%" y="50%" class="chart-subtitle">You passed the exam.</text>
+
+            <text x="50%" y="50%" class="chart-certificate">
+              We'll send you the certificate
+              <tspan dy="1.2em" x="21">in a few minutes.</tspan>
+              <tspan dy="1.2em" x="21">Check your email (including</tspan>
+              <tspan dy="1.2em" x="21">promotions / spam folder)</tspan>
+            </text>
+          </g>
+        </svg>
+        <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+          <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#00FFFF" stroke-width="5.5"></circle>
+          <circle
+            class="donut-segment"
+            cx="21"
+            cy="21"
+            r="15.91549430918954"
+            fill="transparent"
+            stroke="#d20094"
+            stroke-width="5.5"
+            stroke-dasharray="70 30"
+            stroke-dashoffset="25"
+          ></circle>
+
+          <g class="chart-text-failed">
+            <text x="50%" y="50%" class="chart-title">Oh no.</text>
+            <text x="50%" y="50%" class="chart-subtitle">You didn't pass this time.</text>
+
+            <text x="50%" y="50%" class="chart-certificate">
+              Don't worry - you can try again
+              <tspan dy="1.2em" x="21">another time.</tspan>
+              <tspan dy="1.2em" x="21">Check your email for details</tspan>
+              <tspan dy="1.2em" x="21">on retaking the exam.</tspan>
+            </text>
+          </g>
         </svg>
       </div>
 

@@ -1,17 +1,15 @@
 body {
   width: 15%;
-  background-color: blue;
+  background-color: #0c113b;
 }
-svg {
-  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
+circle {
+  filter: drop-shadow(0.5px 0.5px 0.5px rgba(0, 0, 0, 0.7));
 }
-.chart-text {
+
+.chart-text-failed,
+.chart-text-passed {
   font: 16px/1.4em "Inter", Arial, sans-serif;
   fill: #fff;
-  /* -moz-transform: translateY(0.25em);
-  -ms-transform: translateY(0.25em);
-  -webkit-transform: translateY(0.25em);
-  transform: translateY(0.25em); */
 }
 
 .chart-title {
@@ -34,6 +32,10 @@ svg {
   -ms-transform: translateY(-2.8em);
   -webkit-transform: translateY(-2.8em);
   transform: translateY(-2.8em);
+}
+
+.chart-text-failed > .chart-subtitle {
+  fill: #d20094;
 }
 
 .chart-certificate {

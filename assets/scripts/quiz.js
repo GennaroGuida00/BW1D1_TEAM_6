@@ -84,88 +84,112 @@ const quizQuestions = [
 let correct = 0;
 let wrong = 0;
 let questionNumber = 0;
-let time = 5;
+let time = 0;
+const totalTime = 5;
 let seconds = document.getElementById("seconds");
-let timerInterval;
-
-function generateQs() {
-  clearInterval(timerInterval);
-  time = 5;
-  seconds.textContent = time;
-  const question = quizQuestions[questionNumber];
-  document.getElementById("quiz-question-title").innerText = question.question;
-  const allAnswers = [...question.incorrect_answers, question.correct_answer];
-  allAnswers.sort(() => Math.random() - 0.5);
-
-  document.getElementById("currentQuestion").innerText = questionNumber + 1;
-  document.getElementById("currentQuestion").style.color = "#fff";
-  document.getElementById("allQuestions").innerText = "/ " + quizQuestions.length;
-  document.getElementById("quiz-possible-answers").innerHTML = "";
-
-  let second = setInterval(function () {
-    time--;
+let second;
+document.addEventListener("DOMContentLoaded", function () {
+  function generateQs() {
+    time = 5;
     seconds.textContent = time;
 
-    if (time === 0) {
+    if (second != 0) {
       clearInterval(second);
-      questionNumber++;
-      wrong++;
-
-      if (questionNumber < quizQuestions.length) {
-        generateQs();
-      } else {
-        showResults();
-      }
     }
-  }, 1000);
 
-  for (let i = 0; i < allAnswers.length; i++) {
-    const button = document.createElement("button");
-    button.innerText = allAnswers[i];
-    button.classList.add("answer-button");
-    button.onclick = function (e) {
-      if (allAnswers[i] === question.correct_answer) {
-        correct++;
-      } else {
+    const question = quizQuestions[questionNumber];
+    document.getElementById("quiz-question-title").innerText = question.question;
+    const allAnswers = [...question.incorrect_answers, question.correct_answer];
+    allAnswers.sort(() => Math.random() - 0.5);
+
+    document.getElementById("currentQuestion").innerText = questionNumber + 1;
+    document.getElementById("currentQuestion").style.color = "#fff";
+    document.getElementById("allQuestions").innerText = "/ " + quizQuestions.length;
+    document.getElementById("quiz-possible-answers").innerHTML = "";
+    const blueRing = document.querySelector(".donut-timer");
+
+    second = setInterval(function () {
+      time--;
+      seconds.textContent = time;
+      blueRing.setAttribute("stroke-dashoffset", "100");
+      //calcolo la percentuale di tempo trascorso in secondi
+      const progress = ((totalTime - time) / totalTime) * 100;
+      const newOffset = 100 - progress;
+      //svuoto il cerchio blu in base al tempo trascorso
+      blueRing.setAttribute("stroke-dashoffset", newOffset);
+
+      if (time === totalTime) {
+        blueRing.setAttribute("stroke-dashoffset", 100);
+      }
+
+      if (time === 0) {
+        clearInterval(second);
+        questionNumber++;
         wrong++;
+
+        if (questionNumber < quizQuestions.length) {
+          generateQs();
+        } else {
+          showResults();
+        }
       }
+    }, 1000);
 
-      questionNumber++;
+    for (let i = 0; i < allAnswers.length; i++) {
+      const button = document.createElement("button");
+      button.innerText = allAnswers[i];
+      button.classList.add("answer-button");
+      button.onclick = function (e) {
+        if (allAnswers[i] === question.correct_answer) {
+          correct++;
+        } else {
+          wrong++;
+        }
 
-      if (questionNumber < quizQuestions.length) {
-        generateQs();
-      } else {
-        showResults();
-      }
-    };
+        questionNumber++;
 
-    document.getElementById("quiz-possible-answers").appendChild(button);
-  }
-}
+        if (questionNumber < quizQuestions.length) {
+          generateQs();
+        } else {
+          showResults();
+        }
+      };
 
-function showResults() {
-  let divresults = document.getElementById("results");
-  let divquiz = document.getElementById("quiz-question-div");
-  let divtimer = document.getElementById("timer");
-
-  divquiz.style.display = "none";
-  divtimer.style.display = "none";
-  divresults.style.display = "block";
-
-  document.getElementById("percorrect").innerText = correct * 10 + "%";
-  document.getElementById("perwrong").innerText = wrong * 10 + "%";
-  document.getElementById("numCorrectanswers").innerText = correct + " /10 questions";
-  document.getElementById("numWronganswers").innerText = wrong + " /10 questions";
-
-  if (wrong > 5) {
-    document.querySelector(".chart-title").textContent = "Sorry!";
-    document.querySelector(".chart-subtitle").textContent = "You don't passed the exam!";
-    document.querySelector(".chart-certificate").remove();
+      document.getElementById("quiz-possible-answers").appendChild(button);
+    }
+    startTimer();
   }
 
-  let grafic_segment = document.querySelector(".donut-segment");
-  let strokeDasharray = `${correct * 10} ${wrong * 10}`;
-  grafic_segment.setAttribute("stroke-dasharray", strokeDasharray);
-}
+  function showResults() {
+    let divresults = document.getElementById("results");
+    let divquiz = document.getElementById("quiz-question-div");
+    let divtimer = document.getElementById("timer");
 
-generateQs();
+    divquiz.style.display = "none";
+    divtimer.style.display = "none";
+    divresults.style.display = "block";
+
+    document.getElementById("percorrect").innerText = correct * 10 + "%";
+    document.getElementById("perwrong").innerText = wrong * 10 + "%";
+    document.getElementById("numCorrectanswers").innerText = correct + " /10 questions";
+    document.getElementById("numWronganswers").innerText = wrong + " /10 questions";
+    let strokeDasharray = 0;
+    let grafic_segment = document.querySelector(".donut-segment");
+
+    if (wrong > 5) {
+      document.querySelector(".chart-title").textContent = "Sorry!";
+      document.querySelector(".chart-subtitle").textContent = "You didn't pass the exam!";
+
+      strokeDasharray = `${wrong * 10} ${correct * 10}`;
+      grafic_segment.setAttribute("stroke-dasharray", strokeDasharray);
+      grafic_segment.setAttribute("stroke-dashoffset", -75);
+
+      document.querySelector(".chart-certificate").remove();
+    } else {
+      strokeDasharray = `${correct * 10} ${wrong * 10}`;
+      grafic_segment.setAttribute("stroke-dasharray", strokeDasharray);
+    }
+  }
+
+  generateQs();
+});
