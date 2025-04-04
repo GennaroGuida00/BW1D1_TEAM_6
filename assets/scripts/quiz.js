@@ -85,12 +85,12 @@ let correct = 0;
 let wrong = 0;
 let questionNumber = 0;
 let time = 0;
-const totalTime = 5;
+const totalTime = 60;
 let seconds = document.getElementById("seconds");
 let second;
 document.addEventListener("DOMContentLoaded", function () {
   function generateQs() {
-    time = 5;
+    time = 60;
     seconds.textContent = time;
 
     if (second != 0) {
